@@ -1,12 +1,27 @@
-import { useState } from 'react'
+import { useState, useEffect, createContext } from 'react'
+import Board from './components/Board'
+import { createPokemon } from './data/data'
+
+export const AppContext = createContext();
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  let temp = [];
+  const [pokeList, setPokeList] = useState([]);
+  useEffect(() => {
+      createPokemon().then((res) => {
+        setPokeList(res.pokemans)
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
   return (
-    <>
-      <p>hello</p>
-    </>
+    <AppContext.Provider value={{
+      pokeList
+    }}
+    >
+      <Board />
+    </AppContext.Provider>
   )
 }
 
