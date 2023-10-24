@@ -1,0 +1,5 @@
+.main-container {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 300px auto 400px;
+}
