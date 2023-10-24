@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 export default function SideBar() {
+  
   return (
     <div>
         <h1>Pokemon Memory Yay!</h1>

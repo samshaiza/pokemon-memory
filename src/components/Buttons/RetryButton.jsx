@@ -2,16 +2,17 @@ import React, { useContext } from 'react'
 import { AppContext } from '../../App'
 import { shuffle } from '../../App';
 export default function RetryButton() {
-    const { setScore, setPokeList, pokeList, setReset } = useContext(AppContext);
+    const { setScore, setPokeList, pokeList, setReset, setGameOver, setMemory } = useContext(AppContext);
     function handleClick() {
         setScore(0);
         let tempArray = shuffle(pokeList);
         setPokeList(tempArray);
-        console.log(pokeList);
         setReset(true);
+        setGameOver({gameOver: false, winGame: false});
+        setMemory([]);
     }
   return (
-    <button onClick={handleClick}>
+    <button className='restart-btn' onClick={handleClick}>
         Retry?
     </button>
   )

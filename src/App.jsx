@@ -26,11 +26,13 @@ function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [reset, setReset] = useState(false); 
-  
+  const [memory, setMemory] = useState([]);
+  const [gameOver, setGameOver] = useState({gameOver: false, winGame: false});
+
   useEffect(() => {
       createPokemon().then((res) => {
-        setPokeList(res.pokemans)
-        
+        let tempArray = shuffle(res.pokemans);
+        setPokeList(tempArray);
       })
       .catch((e) => {
         console.log(e);
@@ -42,6 +44,25 @@ function App() {
     setHighScore(Math.max(highScore, score));
   }, [score]);
 
+  function handleCardSelect(card) {
+    if(gameOver.gameOver) {
+      return;
+    }
+    if(memory.includes(card)) {
+      setGameOver({gameOver: true, winGame: false});
+    } else {
+      memory.push(card);
+      setScore(score + 1);
+      let tempArray = shuffle(pokeList);
+      setPokeList(tempArray);
+      console.log(memory.length + ", " + pokeList.length);
+      if(memory.length === pokeList.length) {
+        setGameOver({gameOver: true, winGame: true});
+      }
+    }
+    console.log(memory);
+  }
+
   return (
     <div className='main-container'>
       <AppContext.Provider value={{
@@ -52,7 +73,12 @@ function App() {
         highScore,
         setHighScore,
         reset,
-        setReset
+        setReset,
+        memory,
+        setMemory,
+        handleCardSelect,
+        gameOver,
+        setGameOver
       }}
       >
         <LeftSideBar />

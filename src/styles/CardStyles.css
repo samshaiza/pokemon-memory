@@ -1,12 +1,42 @@
+:root {
+    --border: rgb(3, 169, 244);
+    
+    --g1: rgb(98, 0, 234);
+    --g2: rgb(236, 64, 122);
+    --g3: rgb(253, 216, 53);
+  }
+
 .card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    margin: 5px 12px;
-    padding: 0px 7px;
-    border: 2px solid rgba(255, 255, 255, 0.6);
+    margin: 5px;
+    /*padding: 0px 7px;*/
+    aspect-ratio: 1/1.2;
+    border: 0.5vmin solid rgba(255, 255, 255, 0.6);
     border-radius: 4px;
+    cursor: pointer;
+    transition: background-position 350ms ease, transform 300ms ease;
+}
+
+.card:hover {
+    
+    background-position: 100% 100%;
+    transform: scale(1.08, 1.03);
+}
+
+.card:hover > img {
+    animation: pulse 400ms ease-in-out forwards;
+}
+
+@keyframes pulse {
+    from {
+        scale: 1;
+    }
+    to {
+        scale: 1.1;
+    }
 }
 
 .name {

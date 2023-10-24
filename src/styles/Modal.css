@@ -1,0 +1,46 @@
+
+
+.modal, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    
+}
+
+.overlay {
+    background: rgba(55, 55, 55, 0.8);
+}
+
+.modal-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    border-radius: 6px;
+    max-width: 600px;
+    min-width: 300px;
+    
+}
+
+.restart-btn {
+    padding: 2px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    transition: 0.1s;
+    font-size: 1.2rem;
+}
+
+.restart-btn:hover {
+    opacity: 0.8;
+}

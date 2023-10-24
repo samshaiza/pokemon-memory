@@ -2,9 +2,10 @@ import React, { useState, useEffect, useContext } from 'react'
 import Card from './Card';
 import '../styles/BoardStyles.css';
 import { AppContext } from '../App';
+import Modal from './Modal';
 
 export default function Board({pokeList}) {
-    const { setReset, reset } = useContext(AppContext);
+    const { setReset, reset, gameOver } = useContext(AppContext);
     let cardArray = [];
     pokeList.forEach((pokemon, index) => {
         cardArray.push(<Card index={index} name={pokemon.name} imgSrc={pokemon.imgSrc}/>);
@@ -17,8 +18,6 @@ export default function Board({pokeList}) {
     }, [reset]);
     
     function Render () {
-        console.log('this is happening!');
-        console.log(cardArray);
         return pokeList.map((pokemon, index) => {
             return (
                 <Card key={index} index={index} name={pokemon.name} imgSrc={pokemon.imgSrc}/>
@@ -29,6 +28,7 @@ export default function Board({pokeList}) {
     return (
         <div className='board'>
             <Render />
+            <Modal />
         </div>
     )
 }

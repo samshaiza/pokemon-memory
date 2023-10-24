@@ -1,25 +1,16 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../App'
-import RetryButton from './Buttons/RetryButton';
 
 export default function RightSideBar() {
-    const { score, setScore, highScore, pokeList } = useContext(AppContext);
-    function handleClick() {
-        setScore(score + 1);
-        console.log(pokeList);
-    }
+    const { score, highScore } = useContext(AppContext);
   return (
     <div>
-        <h1>
+        <h1 className='curr-score'>
             Score: {score}
         </h1>
-        <h2>
+        <h2 className='high-score'>
             Highest Score: {highScore}
         </h2>
-        <RetryButton />
-        <button onClick={handleClick}>
-            Increase score
-        </button>
     </div>
   )
 }
