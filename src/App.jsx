@@ -4,7 +4,7 @@ import { createPokemon } from './data/data'
 import './styles/AppStyles.css';
 import RightSideBar from './components/RightSideBar';
 import StartGame from './components/StartGame';
-import Modal from './components/Modal';
+import Modal from './components/Modal.jsx';
 
 export const AppContext = createContext();
 
