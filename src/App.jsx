@@ -23,7 +23,7 @@ export function shuffle(array) {
 }
 
 function fillRandomArray(num, max) {
-  return Array.from({length: num}, () => Math.floor(Math.random() * 999));
+  return Array.from({length: num}, () => Math.floor(Math.random() * (999 - 1)) + 1);
 }
 
 function App() {
@@ -64,8 +64,6 @@ function App() {
     setPokeList(tempArray2);
   }, [pokemonCount])
 
-
-
   useEffect(() => {
     setHighScore(Math.max(highScore, score));
   }, [score]);
@@ -81,7 +79,6 @@ function App() {
       setScore(score + 1);
       let tempArray = shuffle(pokeList);
       setPokeList(tempArray);
-      console.log(memory.length + ", " + pokeList.length);
       if(memory.length === pokeList.length) {
         setGameOver({gameOver: true, winGame: true});
       }
