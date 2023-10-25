@@ -5,7 +5,7 @@ import { AppContext } from '../App';
 import Modal from './Modal';
 import GameOver from './GameOver';
 export default function Board({}) {
-    const { setReset, reset, gameStart, pokeList } = useContext(AppContext);
+    const { setReset, reset, pokeList } = useContext(AppContext);
     /*
     let cardArray = [];
     pokeList.forEach((pokemon, index) => {
