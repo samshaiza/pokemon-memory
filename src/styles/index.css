@@ -25,3 +25,9 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+.side-bar {
+  height: 300px;
+  position: fixed;
+  left: 70%;
+}
