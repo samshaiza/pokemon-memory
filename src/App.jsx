@@ -83,7 +83,6 @@ function App() {
         setGameOver({gameOver: true, winGame: true});
       }
     }
-    console.log(memory);
   }
 
   return (
