@@ -27,7 +27,6 @@ function fillRandomArray(num, max) {
 }
 
 function App() {
-  let temp = [];
   const [pokeList, setPokeList] = useState([]);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
