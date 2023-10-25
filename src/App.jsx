@@ -1,9 +1,11 @@
 import { useState, useEffect, createContext } from 'react'
 import Board from './components/Board'
 import { createPokemon } from './data/data'
-import LeftSideBar from './components/LeftSideBar';
 import './styles/AppStyles.css';
 import RightSideBar from './components/RightSideBar';
+import StartGame from './components/StartGame';
+import Modal from './components/Modal';
+
 export const AppContext = createContext();
 
 export function shuffle(array) {
@@ -20,6 +22,10 @@ export function shuffle(array) {
   return array;
 }
 
+function fillRandomArray(num, max) {
+  return Array.from({length: num}, () => Math.floor(Math.random() * 999));
+}
+
 function App() {
   let temp = [];
   const [pokeList, setPokeList] = useState([]);
@@ -28,17 +34,46 @@ function App() {
   const [reset, setReset] = useState(false); 
   const [memory, setMemory] = useState([]);
   const [gameOver, setGameOver] = useState({gameOver: false, winGame: false});
+  const [pokemonCount, setPokemonCount] = useState();
+  const [allPokemonEver, setAllPokemonEver] = useState(new Map());
+
+  const [gameStart, setGameStart] = useState(false);
+
+  let tempArray;
+  let tempArray2;
 
   useEffect(() => {
       createPokemon().then((res) => {
-        let tempArray = shuffle(res.pokemans);
-        setPokeList(tempArray);
+        
+        setAllPokemonEver(res.pokemans);
+        
       })
       .catch((e) => {
         console.log(e);
       });
       
   }, []);
+
+  useEffect(() => {
+    tempArray = fillRandomArray(pokemonCount, pokemonCount);
+    for(const i of tempArray) {
+      if(tempArray[i] > 1000 ) {
+        console.log(tempArray[i]);
+      }
+    }
+    tempArray2 = tempArray.map(value => {
+      if(allPokemonEver.get(value) === undefined) {
+        console.log(value);
+      }
+        return allPokemonEver.get(value+1);
+    });
+
+    setPokeList(tempArray2);
+    console.log(allPokemonEver.get(0));
+    console.log(tempArray2.includes(undefined));
+  }, [pokemonCount])
+
+
 
   useEffect(() => {
     setHighScore(Math.max(highScore, score));
@@ -78,12 +113,15 @@ function App() {
         setMemory,
         handleCardSelect,
         gameOver,
-        setGameOver
+        setGameOver,
+        pokemonCount,
+        setPokemonCount,
+        gameStart,
+        setGameStart
       }}
       >
-        <LeftSideBar />
-        <Board pokeList={pokeList}/>
-        <RightSideBar />
+        {gameStart ? <Board pokeList={pokeList}/> : <Modal content={<StartGame />}/>}
+        {gameStart && <RightSideBar />}
       </AppContext.Provider>
     </div>
     

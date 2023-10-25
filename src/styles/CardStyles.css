@@ -4,7 +4,7 @@
     --g1: rgb(98, 0, 234);
     --g2: rgb(236, 64, 122);
     --g3: rgb(253, 216, 53);
-  }
+}
 
 .card {
     display: flex;
@@ -13,6 +13,7 @@
     text-align: center;
     margin: 5px;
     /*padding: 0px 7px;*/
+    /*max-width: 100px;*/
     aspect-ratio: 1/1.2;
     border: 0.5vmin solid rgba(255, 255, 255, 0.6);
     border-radius: 4px;
@@ -21,7 +22,6 @@
 }
 
 .card:hover {
-    
     background-position: 100% 100%;
     transform: scale(1.08, 1.03);
 }
@@ -40,5 +40,5 @@
 }
 
 .name {
-    font-size: 1.4rem;
+    font-size: 1rem;
 }

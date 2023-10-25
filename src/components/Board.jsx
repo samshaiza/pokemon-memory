@@ -3,14 +3,16 @@ import Card from './Card';
 import '../styles/BoardStyles.css';
 import { AppContext } from '../App';
 import Modal from './Modal';
-
-export default function Board({pokeList}) {
-    const { setReset, reset, gameOver } = useContext(AppContext);
+import GameOver from './GameOver';
+export default function Board({}) {
+    const { setReset, reset, gameStart, pokeList } = useContext(AppContext);
+    /*
     let cardArray = [];
     pokeList.forEach((pokemon, index) => {
         cardArray.push(<Card index={index} name={pokemon.name} imgSrc={pokemon.imgSrc}/>);
     })
-
+    */
+    let count = 0;
     useEffect(() => {
         if(reset) {
             setReset(false);
@@ -18,7 +20,13 @@ export default function Board({pokeList}) {
     }, [reset]);
     
     function Render () {
+        console.log(pokeList.includes(undefined));
+        console.log(pokeList);
         return pokeList.map((pokemon, index) => {
+            // console.log(index);
+            if(pokemon === undefined) {
+                console.log(pokemon + ", " + index)
+            }
             return (
                 <Card key={index} index={index} name={pokemon.name} imgSrc={pokemon.imgSrc}/>
             )
@@ -27,8 +35,9 @@ export default function Board({pokeList}) {
 
     return (
         <div className='board'>
+            
             <Render />
-            <Modal />
+            <Modal content={<GameOver />}/>
         </div>
     )
 }

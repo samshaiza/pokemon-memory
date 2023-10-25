@@ -5,6 +5,8 @@ export default function RightSideBar() {
     const { score, highScore } = useContext(AppContext);
   return (
     <div>
+        <h1>Pokemon Memory Yay!</h1>
+        <p>Don't click on the same card twice</p>
         <h1 className='curr-score'>
             Score: {score}
         </h1>

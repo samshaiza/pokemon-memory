@@ -33,7 +33,7 @@
     
 }
 
-.restart-btn {
+.restart-btn  {
     padding: 2px 8px;
     border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 4px;
@@ -41,6 +41,30 @@
     font-size: 1.2rem;
 }
 
+.end-game {
+    padding: 2px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    transition: 0.1s;
+    font-size: 1.2rem;
+    margin-left: 4px;
+}
+
 .restart-btn:hover {
     opacity: 0.8;
+}
+
+.submit {
+    padding: 2px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    transition: 0.1s;
+    font-size: 1.2rem;
+    margin-left: 4px;
+    margin-top: 12px;
+}
+
+.input-num {
+    appearance: textfield;
+    font-size: 1.2rem;
 }
