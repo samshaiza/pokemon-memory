@@ -20,8 +20,6 @@ export default function Board({}) {
     }, [reset]);
     
     function Render () {
-        console.log(pokeList.includes(undefined));
-        console.log(pokeList);
         return pokeList.map((pokemon, index) => {
             // console.log(index);
             if(pokemon === undefined) {

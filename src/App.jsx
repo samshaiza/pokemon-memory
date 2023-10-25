@@ -56,21 +56,12 @@ function App() {
 
   useEffect(() => {
     tempArray = fillRandomArray(pokemonCount, pokemonCount);
-    for(const i of tempArray) {
-      if(tempArray[i] > 1000 ) {
-        console.log(tempArray[i]);
-      }
-    }
+    
     tempArray2 = tempArray.map(value => {
-      if(allPokemonEver.get(value) === undefined) {
-        console.log(value);
-      }
         return allPokemonEver.get(value+1);
     });
 
     setPokeList(tempArray2);
-    console.log(allPokemonEver.get(0));
-    console.log(tempArray2.includes(undefined));
   }, [pokemonCount])
 
 
