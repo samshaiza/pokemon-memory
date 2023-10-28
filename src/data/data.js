@@ -1,5 +1,3 @@
-
-
 export const createPokemon = async () => {
     let pokemans;
 

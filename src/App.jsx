@@ -43,14 +43,11 @@ function App() {
 
   useEffect(() => {
       createPokemon().then((res) => {
-        
         setAllPokemonEver(res.pokemans);
-        
       })
       .catch((e) => {
         console.log(e);
       });
-      
   }, []);
 
   useEffect(() => {
