@@ -32,6 +32,12 @@ body {
   left: 70%;
 }
 
+@media only screen and (max-width: 450px) {
+  .side-bar {
+    left: 0%;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .side-bar {
     position: relative;
@@ -42,16 +48,16 @@ body {
   .side-bar {
     left: 70%;
   }
-} 
+}
 
 @media only screen and (min-width: 1200px) {
   .side-bar {
-    left: 70%;
+    left: 75%;
   }
 }
 
-@media only screen and (min-width: 2000px) {
+@media only screen and (min-width: 1600px) {
   .side-bar {
-    left: 90%;
+    left: 80%;
   }
 }
