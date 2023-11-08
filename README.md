@@ -1,8 +1,15 @@
-# React + Vite
+# Pokemon Memory
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pokemon Memory is a, as the title suggests, Pokemon memory game.
 
-Currently, two official plugins are available:
+## Rules
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Pick the difficulty by choosing the amount of Pokemon you want to play with. 
+
+3. Win by selecting every single Pokemon once without selecting the same Pokemon twice!
+
+## Play
+
+The game is hosted on my GitHub Pages.
+
+https://samshaiza.github.io/pokemon-memory/
