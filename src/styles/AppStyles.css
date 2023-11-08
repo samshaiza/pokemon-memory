@@ -1,17 +1,17 @@
 .main-container {
-    margin: 0;
-    display: grid;
-    grid-template-columns: auto 400px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 400px;
 }
 @media only screen and (max-width: 600px) {
-    .main-container {
-        display: flex;
-        flex-direction: column;
-    }
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media only screen and (max-width: 900px) {
-    .main-container {
-        grid-template-columns: auto 200px;
-    }
+  .main-container {
+    grid-template-columns: auto 200px;
+  }
 }
